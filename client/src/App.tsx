@@ -4,9 +4,9 @@ function App() {
 
 
   return (
-    <>
-      <h1>gg boys</h1>
-    </>
+    <h1 className="text-xl font-bold underline">
+      Hello world!
+    </h1>
   )
 }
 
