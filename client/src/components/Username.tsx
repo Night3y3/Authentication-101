@@ -1,17 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie-player';
+import { Toaster } from 'react-hot-toast';
+import { useFormik } from 'formik';
+
 import avatar from '../assets/profile.json';
 import styles from '../styles/username.module.css';
+import { userValidate } from '../helper/validate';
 
 interface UsernameProps {
     // Define prop types here
 }
 
 const Username: React.FC<UsernameProps> = () => {
-    // Component logic using props
+
+    // Formik
+    const formik = useFormik({
+        initialValues: {
+            username: '',
+        },
+        validate: userValidate,
+        validateOnBlur: false,
+        validateOnChange: false,
+        onSubmit: async values => {
+            console.log(values);
+        },
+    });
     return (
         <div className="container mx-auto">
+            <Toaster
+                position='top-right'
+                reverseOrder={false}></Toaster>
             <div className='flex justify-center items-center h-screen'>
                 <div className={styles.glass}>
                     <div className='flex flex-col items-center title'>
@@ -19,7 +38,7 @@ const Username: React.FC<UsernameProps> = () => {
                         <span className='py-4 text-xl w-2/3 text-center text-gray-300'>Explore More by moving forword</span>
                     </div>
 
-                    <form action="" method="post" className='py-1'>
+                    <form action="" method="post" className='py-1' onSubmit={formik.handleSubmit}>
                         <div className='profile flex justify-center py-4'>
                             <Lottie
                                 loop={false}
@@ -30,7 +49,8 @@ const Username: React.FC<UsernameProps> = () => {
                         </div>
 
                         <div className="textbox flex flex-col items-center gap-6">
-                            <input className={styles.textbox} type="text" placeholder='username' />
+                            {/* Direct new initialValues can be added from getFieldProps too */}
+                            <input {...formik.getFieldProps('username')} className={styles.textbox} type="text" placeholder='username' />
                             <button type='submit' className={styles.btn}>Lets Go</button>
                         </div>
 
