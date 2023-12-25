@@ -1,13 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Importing Components
-import Username from './components/username';
-import Password from './components/password';
-import Register from './components/register';
-import Profile from './components/profile';
-import Recovery from './components/recovery';
+import Username from './components/Username';
+import Password from './components/Password';
+import Register from './components/Register';
+import Profile from './components/Profile';
+import Recovery from './components/Recovery';
 import Reset from './components/Reset';
 import PageNotFound from './components/PageNotFound';
+
+import { Toaster } from 'react-hot-toast';
 
 // Root Routes
 const router = createBrowserRouter([
@@ -46,6 +48,9 @@ function App() {
   return (
     <main>
       <RouterProvider router={router}></RouterProvider>
+      <Toaster
+        position='top-center'
+        reverseOrder={false}></Toaster>
     </main>
   )
 }

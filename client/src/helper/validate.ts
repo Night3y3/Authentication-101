@@ -7,6 +7,13 @@ export async function userValidate(values: { username?: string }) {
   return errors;
 }
 
+// Validate login page username
+export async function passwordValidate(values: { password?: string }) {
+  const errors = passwordVerify({}, values);
+
+  return errors;
+}
+
 // Validate username
 
 function usernameVerify(
@@ -17,6 +24,29 @@ function usernameVerify(
     error.username = toast.error("Username is required");
   } else if (values.username.includes(" ")) {
     error.username = toast.error("Invalid username");
+  }
+
+  return error;
+}
+
+// Validate password
+
+function passwordVerify(
+  error = {},
+  values: { password?: string } // Provide the correct type for the values parameter
+) {
+  const specialChars = /[`!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/;
+
+  if (!values.password) {
+    error.password = toast.error("Password Required...!");
+  } else if (values.password.includes(" ")) {
+    error.password = toast.error("Wrong Password...!");
+  } else if (values.password.length < 4) {
+    error.password = toast.error(
+      "Password must be more than 4 characters long"
+    );
+  } else if (!specialChars.test(values.password)) {
+    error.password = toast.error("Password must have special character");
   }
 
   return error;

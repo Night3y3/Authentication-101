@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie-player';
-import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 
 import avatar from '../assets/profile.json';
@@ -28,9 +27,6 @@ const Username: React.FC<UsernameProps> = () => {
     });
     return (
         <div className="container mx-auto">
-            <Toaster
-                position='top-right'
-                reverseOrder={false}></Toaster>
             <div className='flex justify-center items-center h-screen'>
                 <div className={styles.glass}>
                     <div className='flex flex-col items-center title'>
