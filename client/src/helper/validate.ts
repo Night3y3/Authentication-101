@@ -7,12 +7,27 @@ export async function userValidate(values: { username?: string }) {
   return errors;
 }
 
-// Validate login page username
+// Validate password
 export async function passwordValidate(values: { password?: string }) {
   const errors = passwordVerify({}, values);
 
   return errors;
 }
+
+// Validate reset password
+export async function resetPasswordValidate(values: {
+  password?: string;
+  confirm_password?: string;
+}) {
+  const errors = passwordVerify({}, values);
+
+  if (values.password !== values.confirm_password) {
+    errors.confirm_password = toast.error("Password does not match");
+  }
+  return errors;
+}
+
+/////////////////////////////////////////////////////////////////////
 
 // Validate username
 
