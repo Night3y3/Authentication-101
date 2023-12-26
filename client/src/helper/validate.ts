@@ -27,6 +27,18 @@ export async function resetPasswordValidate(values: {
   return errors;
 }
 
+// Validate register username and password
+export async function registerValidate(values: {
+  username?: string;
+  password?: string;
+}) {
+  let errors = userValidate(values);
+  if (errors.username === null) return "ok";
+  else {
+    errors = passwordValidate(values);
+  }
+}
+
 /////////////////////////////////////////////////////////////////////
 
 // Validate username
@@ -53,9 +65,9 @@ function passwordVerify(
   const specialChars = /[`!@#$%^&*()_+\-=\]{};':"\\|,.<>?~]/;
 
   if (!values.password) {
-    error.password = toast.error("Password Required...!");
+    error.password = toast.error("Password is Required");
   } else if (values.password.includes(" ")) {
-    error.password = toast.error("Wrong Password...!");
+    error.password = toast.error("Wrong Password!");
   } else if (values.password.length < 4) {
     error.password = toast.error(
       "Password must be more than 4 characters long"

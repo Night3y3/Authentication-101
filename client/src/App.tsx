@@ -50,7 +50,7 @@ function App() {
       <RouterProvider router={router}></RouterProvider>
       <Toaster
         position='top-center'
-        reverseOrder={false}></Toaster>
+        reverseOrder={true}></Toaster>
     </main>
   )
 }
