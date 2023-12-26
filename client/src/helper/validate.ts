@@ -40,6 +40,32 @@ export async function registerValidate(values: {
   return errors;
 }
 
+// Validate profile page
+export async function profileValidate(values: {
+  firstname?: string;
+  lastname?: string;
+  email?: string;
+  mobile?: string;
+  address?: string;
+}) {
+  const errors = emailVerify({}, values);
+
+  if (!values.firstname) {
+    errors.firstname = toast.error("First name is required");
+  }
+  if (!values.lastname) {
+    errors.lastname = toast.error("Last name is required");
+  }
+  if (!values.mobile) {
+    errors.mobile = toast.error("Phone number is required");
+  }
+  if (!values.address) {
+    errors.address = toast.error("Address is required");
+  }
+
+  return errors;
+}
+
 /////////////////////////////////////////////////////////////////////
 
 // Validate username
