@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import morgan from "morgan";
 import connect from "./database/connection";
+import router from "./router/route";
 
 const app: Express = express();
 
@@ -17,6 +18,9 @@ const port = 8080;
 app.get("/", (req: Request, res: Response) => {
   res.status(201).json("Hoa gecche bidu");
 });
+
+// api routes
+app.use("/api", router);
 
 // Start the server when database is connected
 connect()
