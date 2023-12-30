@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from "mongoose";
 import { RequiredTypeField } from "../types";
 
-interface User extends Document {
+export interface User extends Document {
   firstName: string;
   lastName: string;
   address?: string;
@@ -35,4 +35,4 @@ const userSchema = new Schema<User>({
   profileImage: { type: String },
 });
 
-export default mongoose.model<User>("User", userSchema);
+export default mongoose.model("Users", userSchema);
