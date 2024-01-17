@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import Recovery from './components/Recovery';
 import Reset from './components/Reset';
 import PageNotFound from './components/PageNotFound';
+import Verify from './components/Verify';
 
 import { Toaster } from 'react-hot-toast';
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: '/recovery',
     element: <Recovery></Recovery>
+  },
+  {
+    path: '/verify',
+    element: <Verify></Verify>
   },
   {
     path: '*',

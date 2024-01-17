@@ -91,7 +91,9 @@ const Register: React.FC<RegisterProps> = () => {
                 </button>
 
               </div>
-              <button type='submit' className={styles.btn}>Sign Up</button>
+              <Link to="/verify" className={styles.btn}>
+                <button type='submit'>Sign Up</button>
+              </Link>
             </div>
 
             <div className="text-center py-4">

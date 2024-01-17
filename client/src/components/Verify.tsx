@@ -2,19 +2,19 @@ import React from 'react';
 
 import styles from '../styles/username.module.css';
 
-interface RecoveryProps {
+interface VerifyProps {
     // Define prop types here
 }
 
-const Recovery: React.FC<RecoveryProps> = () => {
+const Verify: React.FC<VerifyProps> = () => {
 
     return (
         <div className="container mx-auto">
             <div className='flex justify-center items-center h-screen'>
                 <div className={styles.glass}>
                     <div className='flex flex-col items-center title'>
-                        <h1 className='text-5xl font-bold'>Recovery</h1>
-                        <span className='py-4 text-xl w-2/3 text-center text-gray-300'>Enter OTP to recover password.</span>
+                        <h1 className='text-5xl font-bold'>Verify</h1>
+                        <span className='py-4 text-xl w-2/3 text-center text-gray-300'>Enter OTP to verify account.</span>
                     </div>
 
                     <form action="" method="post" className='pt-20'>
@@ -39,4 +39,4 @@ const Recovery: React.FC<RecoveryProps> = () => {
     );
 };
 
-export default Recovery;
+export default Verify;
