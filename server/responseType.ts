@@ -1,4 +1,4 @@
-type ResponseTypeProps = {
+export type ResponseTypeProps = {
   [key: number]: {
     httpstatus: number;
     message: string;
@@ -6,7 +6,7 @@ type ResponseTypeProps = {
   };
 };
 
-const responseType: ResponseTypeProps = {
+export const responseType: ResponseTypeProps = {
   200: {
     httpstatus: 200,
     message: "Successfully loaded data",
@@ -74,7 +74,7 @@ const responseType: ResponseTypeProps = {
   },
   409: {
     httpstatus: 409,
-    message: "Conflict",
+    message: "Request already exists",
     type: "Conflict",
   },
   410: {
@@ -233,6 +233,3 @@ const responseType: ResponseTypeProps = {
     type: "NetworkAuthenticationRequired",
   },
 };
-
-// Example usage
-console.log(responseType[404]); // Output: { httpstatus: 404, message: "Request resource does not exist", type: "Not Found" }

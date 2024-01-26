@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { TUserSchema } from "../schema/user.schema";
-import { createUser } from "../service/user.services";
-import sendMail from "../utils/mailer";
+import { TUserSchema } from "../../schema/User/user.schema";
+import { createUser } from "../../service/user.services";
+import sendMail from "../../utils/mailer";
 
 export async function createUserHandler(
   req: Request<{}, {}, TUserSchema, {}, {}>,

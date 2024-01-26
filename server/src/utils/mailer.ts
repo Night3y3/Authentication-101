@@ -10,6 +10,13 @@ const smtp = config.get<{
   secure: boolean;
 }>("smtp");
 
+// async function createTestCreds() {
+//   const creds = await nodemailer.createTestAccount();
+//   console.log({ creds });
+// }
+
+// createTestCreds();
+
 const transporter = nodemailer.createTransport({
   ...smtp,
   auth: {
