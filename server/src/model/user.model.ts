@@ -2,6 +2,7 @@ import {
   DocumentType,
   Severity,
   getModelForClass,
+  index,
   modelOptions,
   pre,
   prop,
@@ -18,6 +19,7 @@ import log from "../utils/logger";
 
   return;
 })
+@index({ email: 1 })
 @modelOptions({
   schemaOptions: {
     timestamps: true,
